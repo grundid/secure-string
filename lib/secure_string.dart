@@ -12,6 +12,10 @@ class SecureString
     static const List<String> hexCharList =
         const ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
                "a", "b", "c", "d", "e", "f"];
+
+    ///The list of alphanumeric characters to default for [generateNumeric].
+    static const List<String> numericCharList =
+        const ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
     
     ///The list of alphanumeric characters to default for [generateAlphaNumeric].
     static const List<String> alphaNumericCharList =
@@ -49,6 +53,11 @@ class SecureString
         
         return builder2;
     }
+
+    ///Generates a numeric string.
+    ///The [length] determines the length of the resulting string.
+    String generateNumeric({int length: 1024}) =>
+        generate(length: length, charList: numericCharList);
 
     ///Generates an alphanumeric string.
     ///Pipe this through [toLower] or [toUpper] if you want a string that is solely lowercase or uppercase respectively.
